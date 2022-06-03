@@ -1,10 +1,13 @@
-import vercel from '@sveltejs/adapter-vercel';
+import adapter from '@sveltejs/adapter-static'
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
-	kit: {
-		adapter: vercel()
-	}
-};
+  kit: {
+    adapter: adapter({
+      // trailingSlash: 'never',
+    }),
+    prerender: { default: true },
+  },
+}
 
-export default config;
+export default config
